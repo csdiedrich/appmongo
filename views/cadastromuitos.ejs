@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title><%= title %></title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+	<h1>Cadastro de muitos</h1>
+	<form method="POST" action="/cadastromuitos">
+		<p><label for="txtNome">Nome: <input type="text" name="txtNome" value="<%= customer.nome %>" /></label></p>
+		<p><label for="txtIdade">Idade: <input type="number" name="txtIdade" value="<%= customer.idade %>" /></label></p>
+		<input type="hidden" name="id" value="<%= customer._id %>"/>
+		<p><input type="submit" value="VAI" />
+		<% if(customer._id !== "") { %>
+			<a href="/excluir/<%= customer._id %>" onclick="return confirm('Tem certeza que deseja excluir este cliente?');">
+			Excluir</a>
+		<% } %>
+		</p>
+	</form>
+</body>
+</html>

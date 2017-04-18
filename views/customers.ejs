@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title><%= title %></title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+	<% if(title) { %>
+	<h1><%= title %></h1>
+	<p>Welcome to <%= title %></p>
+	<% } %>
+	<ul>
+
+<!--
+	<form action="/cadastro">
+		<input type="submit" value="Cadastrar Novo" />
+	</form>
+	<br>
+	<form action="/cadastromuitos">
+		<input type="submit" value="Cadastrar Novo" />
+	</form>
+
+	<br>
+	<button type="button" formtarget="/cadastro" >Cadastrar MUUUUUITOS, MUITOS mesmo!</button>
+	<br>
+	<button type="button" formtarget="/cadastromuitos">Cadastrar MUUUUUITOS, MUITOS mesmo!</button>
+	
+	<br>
+	<a href="/cadastro">Cadastrar Novo</a>
+	<br>
+	<a href="/cadastromuitos">Cadastrar MUUUUUITOS, MUITOS mesmo!</a>
+-->
+	<% customers.forEach(function(customer){ %>
+		<li><a href="/cadastro/<%= customer._id%>"><%= customer.nome %> tem <%= customer.idade %> anos</a>
+		<a href="/excluir/<%= customer._id %>" onclick="return confirm('Tem certeza que deseja excluir este cliente?');">
+			[X]</a>
+		</li>
+	<% }); %>
+	</ul>
+	
+</body>
+</html>
